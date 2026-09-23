@@ -47,7 +47,7 @@ func integrate_forces(state : PhysicsDirectBodyState3D, body : RigidBody3D) -> v
 		torque = -torque
 	
 	if rpm > 0:
-		print('%7.3f' % static_thrust, ' # ', '%7.3f' % dynamic_thrust, ' # ', '%7.3f' % (dynamic_thrust / static_thrust))
+		#print('%7.3f' % static_thrust, ' # ', '%7.3f' % dynamic_thrust, ' # ', '%7.3f' % (dynamic_thrust / static_thrust))
 		pass
 	#return
 	
