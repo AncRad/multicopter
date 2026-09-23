@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rtbp148k1kgo" path="res://entities/multicopter/multicopter.gd" id="1_3ct3d"]
 [ext_resource type="PhysicsMaterial" uid="uid://cthrvgil1otbi" path="res://entities/multicopter/multicopter_physics_material.tres" id="1_ocjgn"]
+[ext_resource type="Resource" uid="uid://chkhb3e4hggsf" path="res://entities/multicopter/multicopter_settings.tres" id="3_eobv0"]
 
 [node name="Multicopter" type="RigidBody3D" unique_id=429036077]
 physics_material_override = ExtResource("1_ocjgn")
@@ -10,4 +11,5 @@ continuous_cd = true
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_3ct3d")
+settings = ExtResource("3_eobv0")
 metadata/_custom_type_script = "uid://rtbp148k1kgo"

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cqqcjsqmfsrgh"]
 
+[ext_resource type="PackedScene" uid="uid://deqgjyffr1n3f" path="res://constructions/multicopters/my_drone/my_drone.tscn" id="1_53q0u"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_53q0u"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,3 +24,6 @@ environment = SubResource("Environment_xwkvk")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D" unique_id=1460356509]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
+
+[node name="MyDrone" parent="Node3D" unique_id=429036077 instance=ExtResource("1_53q0u")]
+test_throttle = 1.0

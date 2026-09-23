@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MulticopterSettings" format=3 uid="uid://chkhb3e4hggsf"]
+
+[ext_resource type="Script" uid="uid://3igu2lqn256e" path="res://entities/multicopter/multicopter_settings.gd" id="1_4d61i"]
+
+[resource]
+script = ExtResource("1_4d61i")
+metadata/_custom_type_script = "uid://3igu2lqn256e"
