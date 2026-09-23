@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PropellerSettings" format=3 uid="uid://b0n4si6ekieiy"]
+
+[ext_resource type="Curve" uid="uid://btku3yvkan6ma" path="res://constructions/propellers/gemfan_2520_3/gemfan_2520_3_rps_to_flow_curve.tres" id="1_g27re"]
+[ext_resource type="Curve" uid="uid://bg6yw4gtxkjnt" path="res://constructions/propellers/gemfan_2520_3/gemfan_2520_3_rpm_to_newton_curve.tres" id="1_qjl20"]
+[ext_resource type="Curve" uid="uid://dbpxl7qaanqbc" path="res://constructions/propellers/gemfan_2520_3/gemfan_2520_3_rps_to_volume_curve.tres" id="2_qjl20"]
+[ext_resource type="Script" uid="uid://c1jrwk6txvj6h" path="res://entities/propeller/propeller_settings.gd" id="3_8mspw"]
+
+[resource]
+script = ExtResource("3_8mspw")
+forward = Vector3(0, 1, 0)
+diameter_inch = 2.5
+pitch_inch_per_turn = 2.0
+rps_to_volume_curve = ExtResource("2_qjl20")
+rps_to_flow_curve = ExtResource("1_g27re")
+rpm_to_thrust = ExtResource("1_qjl20")
+metadata/_custom_type_script = "uid://c1jrwk6txvj6h"

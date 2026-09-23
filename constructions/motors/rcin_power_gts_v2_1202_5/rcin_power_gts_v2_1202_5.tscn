@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://clgodpgw4267j"]
+
+[ext_resource type="PackedScene" uid="uid://cfrriq1vgipud" path="res://entities/motor/motor.tscn" id="1_twba0"]
+[ext_resource type="ArrayMesh" uid="uid://odcdqctlkbiv" path="res://imports/my_drone/rcin_power_gts_v2_1202_5.mesh" id="2_twba0"]
+[ext_resource type="Resource" uid="uid://b0jda05v08u0c" path="res://constructions/motors/rcin_power_gts_v2_1202_5/rcin_power_gts_v2_1202_5.tres" id="2_u774v"]
+
+[node name="RcinPowerGTS_v2_1202_5" unique_id=1630741534 instance=ExtResource("1_twba0")]
+motor_settings = ExtResource("2_u774v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1523904212]
+mesh = ExtResource("2_twba0")

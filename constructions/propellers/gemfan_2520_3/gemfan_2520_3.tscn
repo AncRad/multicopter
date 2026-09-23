@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://hijoglt0qvrq"]
+
+[ext_resource type="PackedScene" uid="uid://bhlrsbj2okdny" path="res://entities/propeller/propeller.tscn" id="1_6134n"]
+[ext_resource type="Resource" uid="uid://b0n4si6ekieiy" path="res://constructions/propellers/gemfan_2520_3/gemfan_2520_3.tres" id="2_psjgy"]
+
+[node name="Gemfan2520-3" unique_id=1496181087 instance=ExtResource("1_6134n")]
+settings = ExtResource("2_psjgy")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="0" unique_id=1629644088]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" index="0" unique_id=1075370134]
+radius = 0.003
+height = 0.004
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" index="1" unique_id=913126499]
+transform = Transform3D(0.9472102, -0.32061294, 0, 0.32061294, 0.9472102, 0, 0, 0, 1, 0, 0, 0.01592627)
+size = Vector3(0.005, 0.001, 0.0318)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" index="2" unique_id=1885445833]
+transform = Transform3D(-0.47360516, 0.16030648, -0.8660254, 0.32061294, 0.9472102, 0, 0.8203081, -0.27765894, -0.50000006, -0.013792554, 0, -0.007963136)
+size = Vector3(0.005, 0.001, 0.0318)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" index="3" unique_id=751679948]
+transform = Transform3D(-0.47360516, 0.16030648, 0.8660254, 0.32061294, 0.9472102, 0, -0.8203081, 0.27765894, -0.50000006, 0.013792554, 0, -0.007963136)
+size = Vector3(0.005, 0.001, 0.0318)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" index="4" unique_id=468295477]
+operation = 2
+radius = 0.001
+height = 0.01
