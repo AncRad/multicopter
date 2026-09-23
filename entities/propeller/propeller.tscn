@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhlrsbj2okdny"]
+
+[ext_resource type="Script" uid="uid://douiy8hxt62ue" path="res://entities/propeller/propeller.gd" id="1_ookm4"]
+[ext_resource type="Resource" uid="uid://nrv6e8mw8kvw" path="res://entities/propeller/propeller_settings.tres" id="2_3up6f"]
+
+[node name="Propeller" type="Node3D" unique_id=1496181087]
+script = ExtResource("1_ookm4")
+settings = ExtResource("2_3up6f")
+metadata/_custom_type_script = "uid://douiy8hxt62ue"

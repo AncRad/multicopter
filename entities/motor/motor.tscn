@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cfrriq1vgipud"]
+
+[ext_resource type="Script" uid="uid://c5lt86ftq4pho" path="res://entities/motor/motor.gd" id="1_17nnb"]
+[ext_resource type="Resource" uid="uid://fc8x80qvnaon" path="res://entities/motor/motor_settings.tres" id="2_oigtp"]
+
+[node name="Motor" type="Node3D" unique_id=1630741534]
+script = ExtResource("1_17nnb")
+motor_settings = ExtResource("2_oigtp")
+metadata/_custom_type_script = "uid://c5lt86ftq4pho"

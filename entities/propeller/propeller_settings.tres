@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PropellerSettings" format=3 uid="uid://nrv6e8mw8kvw"]
+
+[ext_resource type="Curve" uid="uid://c1hghilqbl0c7" path="res://entities/propeller/rps_to_flow_curve.tres" id="1_hsiv8"]
+[ext_resource type="Script" uid="uid://c1jrwk6txvj6h" path="res://entities/propeller/propeller_settings.gd" id="1_moady"]
+[ext_resource type="Curve" uid="uid://oegnwr0o6gyo" path="res://entities/propeller/rps_to_volume_curve.tres" id="2_wk10o"]
+
+[resource]
+script = ExtResource("1_moady")
+rps_to_volume_curve = ExtResource("2_wk10o")
+rps_to_flow_curve = ExtResource("1_hsiv8")
+metadata/_custom_type_script = "uid://c1jrwk6txvj6h"

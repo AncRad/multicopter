@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MotorSettings" format=3 uid="uid://fc8x80qvnaon"]
+
+[ext_resource type="Script" uid="uid://cawx2julxlp3o" path="res://entities/motor/motor_settings.gd" id="1_g5ko2"]
+
+[resource]
+script = ExtResource("1_g5ko2")
+metadata/_custom_type_script = "uid://cawx2julxlp3o"
