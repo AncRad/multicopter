@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8c6h715178x" path="res://constructions/controllers/jhemcu_f_722_noxe/jhemcu_f_722_noxe.tscn" id="4_uhvsh"]
 [ext_resource type="PackedScene" uid="uid://hijoglt0qvrq" path="res://constructions/propellers/gemfan_2520_3/gemfan_2520_3.tscn" id="4_xp0iy"]
 [ext_resource type="Resource" uid="uid://ceqlslao25whg" path="res://constructions/multicopters/my_drone/my_drone_controller_config.tres" id="5_74il3"]
+[ext_resource type="PackedScene" uid="uid://bfh6328dkouge" path="res://entities/controller/input_handler/input_handler.tscn" id="6_pk3bm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbmk3"]
 size = Vector3(0.02368164, 0.0340332, 0.09140625)
@@ -88,6 +89,11 @@ remote_path = NodePath("../../../../RcinPowerGTS_v2_1202_5-4")
 [node name="JHEMCU_F722_Noxe" parent="." index="4" unique_id=1670334403 instance=ExtResource("4_uhvsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01071985, 0)
 config = ExtResource("5_74il3")
+
+[node name="InputHandler" parent="JHEMCU_F722_Noxe" index="1" unique_id=1769889918 node_paths=PackedStringArray("controller") instance=ExtResource("6_pk3bm")]
+controller = NodePath("..")
+handling = true
+handling_main_actions = true
 
 [node name="RcinPowerGTS_v2_1202_5-1" parent="." index="5" unique_id=1630741534 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
 transform = Transform3D(0.994903, 0, 0.100836, 0, 1, 0, -0.100836, 0, 0.994903, 0.0485, 0.0037198495, 0.034)

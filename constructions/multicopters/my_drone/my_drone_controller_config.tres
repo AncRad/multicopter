@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="ControllerConfig" format=3 uid="uid://ceqlslao25whg"]
 
 [ext_resource type="Curve" uid="uid://dxiyhpexcciuc" path="res://entities/controller/input_throtte_curve.tres" id="1_8orxq"]
-[ext_resource type="Script" uid="uid://xejv1ifas4qp" path="res://core/math/pid/pid_settings.gd" id="2_gcewh"]
+[ext_resource type="Script" uid="uid://xejv1ifas4qp" path="res://core/math/pid/pid_settings.gd" id="2_8orxq"]
 [ext_resource type="Script" uid="uid://c4j2nbviimjm3" path="res://entities/controller/controller_config.gd" id="3_3743f"]
 
 [sub_resource type="Resource" id="Resource_s1qc2"]
-script = ExtResource("2_gcewh")
+script = ExtResource("2_8orxq")
 metadata/_custom_type_script = "uid://xejv1ifas4qp"
 
 [sub_resource type="Resource" id="Resource_w1and"]
-script = ExtResource("2_gcewh")
+script = ExtResource("2_8orxq")
 metadata/_custom_type_script = "uid://xejv1ifas4qp"
 
 [sub_resource type="Resource" id="Resource_57641"]
-script = ExtResource("2_gcewh")
+script = ExtResource("2_8orxq")
 metadata/_custom_type_script = "uid://xejv1ifas4qp"
 
 [resource]
