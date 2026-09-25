@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfh6328dkouge"]
+
+[ext_resource type="Script" uid="uid://b4ta3q6h3a85q" path="res://entities/controller/input_handler/controller_input_handler.gd" id="1_l1yic"]
+
+[node name="InputHandler" type="Node" unique_id=1769889918]
+script = ExtResource("1_l1yic")
