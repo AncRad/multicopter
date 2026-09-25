@@ -49,6 +49,15 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://imports/my_drone/rcin_power_gts_v2_1202_5.mesh",
 "save_to_file/path": "uid://odcdqctlkbiv"
+},
+"_ - __mesh4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://imports/my_drone/jhemcu_f_722_noxe.mesh",
+"save_to_file/path": "uid://3nmgv76gonhf"
 }
 },
 "nodes": {
