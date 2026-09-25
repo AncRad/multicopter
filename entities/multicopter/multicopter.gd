@@ -25,4 +25,8 @@ func _integrate_forces(state : PhysicsDirectBodyState3D) -> void:
 	var air_velocity_local : Vector3 = air_velocity * state.transform.basis.orthonormalized()
 	var drag_local : Vector3 = settings.drag_coef * (air_velocity_local * air_velocity_local.abs()) * air_density
 	var drag : Vector3 = state.transform.basis.orthonormalized() * drag_local
-	state.apply_central_force(drag)
+	if not drag.is_zero_approx():
+		state.apply_central_force(drag)
+	
+	if linear_velocity.length() > 1 != continuous_cd:
+		continuous_cd = not continuous_cd

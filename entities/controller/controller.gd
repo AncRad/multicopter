@@ -2,9 +2,11 @@ extends Node3D
 class_name Controller
 
 @export
-var settings : ControllerSettings
+var settings : ControllerSettings:
+	set = set_settings
 @export
-var config : ControllerConfig
+var config : ControllerConfig:
+	set = set_config
 @export_range(0, 1, 0.001)
 var input_throttle : float:
 	set = set_input_throttle
@@ -12,9 +14,9 @@ var input_throttle : float:
 var input_rotation : Vector3:
 	set = set_input_rotation
 
-var pid_pitch : PIDInstance
-var pid_yaw : PIDInstance
-var pid_roll : PIDInstance
+var pid_pitch : PIDInstance = PIDInstance.new()
+var pid_yaw : PIDInstance = PIDInstance.new()
+var pid_roll : PIDInstance = PIDInstance.new()
 
 
 func integrate_forces(state : PhysicsDirectBodyState3D, multicopter : Multicopter) -> void:
@@ -83,6 +85,17 @@ func set_settings(value : ControllerSettings) -> void:
 			settings.changed.connect(_on_settings_changed)
 		_on_settings_changed()
 
+func set_config(value : ControllerConfig) -> void:
+	if value != config:
+		if config:
+			config.changed.disconnect(_on_config_changed)
+		
+		config = value
+		
+		if config:
+			config.changed.connect(_on_config_changed)
+		_on_config_changed()
+
 func set_input_throttle(value : float) -> void:
 	value = clampf(value, 0, 1)
 	if value != input_throttle:
@@ -95,6 +108,10 @@ func set_input_rotation(value : Vector3) -> void:
 
 func _on_settings_changed() -> void:
 	if settings:
-		pid_pitch.settings = settings.pid_pitch
-		pid_yaw.settings = settings.pid_yaw
-		pid_roll.settings = settings.pid_roll
+		pass
+
+func _on_config_changed() -> void:
+	if config:
+		pid_pitch.settings = config.pid_pitch
+		pid_yaw.settings = config.pid_yaw
+		pid_roll.settings = config.pid_roll

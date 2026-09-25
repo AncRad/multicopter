@@ -49,10 +49,11 @@ func integrate_forces(state : PhysicsDirectBodyState3D, multicopter : Multicopte
 	if rpm > 0:
 		#print('%7.3f' % static_thrust, ' # ', '%7.3f' % dynamic_thrust, ' # ', '%7.3f' % (dynamic_thrust / static_thrust))
 		pass
-	#return
 	
-	state.apply_force(forward_global * dynamic_thrust)
-	state.apply_torque(forward_global * torque)
+	if not is_zero_approx(dynamic_thrust):
+		state.apply_force(forward_global * dynamic_thrust)
+	if not is_zero_approx(torque):
+		state.apply_torque(forward_global * torque)
 
 func _process(delta : float) -> void:
 	var rotation_per_second : float = rpm / 60

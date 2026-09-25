@@ -49,7 +49,7 @@ remote_path = NodePath("../../../../JHEMCU_F722_Noxe")
 transform = Transform3D(1, 1.0566339e-16, 6.997578e-17, -1.2475799e-16, 0.91785896, 0.396905, -2.2289603e-17, -0.396905, 0.91785896, -5.45245e-19, 0.0150716, 0.0324782)
 
 [node name="Camera3D" type="Camera3D" parent="_ - _/drone/caddx ratel 2-1" index="0" unique_id=252472645]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.0095)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.7144276e-11, 1.4551915e-11, 0.010268041)
 fov = 120.0
 near = 0.001
 
