@@ -10,10 +10,10 @@ const AIR_DENSITY : float = 1.225
 @export var root : Node3D
 
 
-func integrate_forces(state : PhysicsDirectBodyState3D, body : RigidBody3D) -> void:
+func integrate_forces(state : PhysicsDirectBodyState3D, multicopter : Multicopter) -> void:
 	## WARNING: RigidBody3D.global_transform != PhysicsDirectBodyState3D.transform -
 	## - так как integrate_forces вызывается из физического сервера до этапа синхронизации с узлами !!!
-	var transform_local : Transform3D = (global_transform * body.global_transform).orthonormalized()
+	var transform_local : Transform3D = (global_transform * multicopter.global_transform).orthonormalized()
 	var forward_global : Vector3 = transform_local.basis * get_forward_local() * state.transform.basis.orthonormalized()
 	
 	var static_thrust : float = settings.rpm_to_newton_curve.sample_baked(rpm)

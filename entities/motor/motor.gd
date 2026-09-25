@@ -9,7 +9,7 @@ var propeller : Propeller
 var throttle : float
 
 
-func integrate_forces(state : PhysicsDirectBodyState3D, body : RigidBody3D) -> void:
+func integrate_forces(state : PhysicsDirectBodyState3D, multicopter : Multicopter) -> void:
 	var prop_rpm_max : float = propeller.settings.rpm_to_newton_curve.max_domain
 	propeller.rpm = prop_rpm_max * throttle
-	propeller.integrate_forces(state, body)
+	propeller.integrate_forces(state, multicopter)
