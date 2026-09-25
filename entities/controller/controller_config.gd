@@ -29,6 +29,9 @@ var rc_rate : Vector3:
 			pid_roll = value
 			emit_changed()
 
+@export_range(0, 0.1, 0.01)
+var throttle_minimum : float = 0.05
+
 #@export_custom(PROPERTY_HINT_RANGE, '0.0,20.0,0.01')
 #var rc_pid_p : Vector3
 #@export_custom(PROPERTY_HINT_RANGE, '0.0,20.0,0.01')
