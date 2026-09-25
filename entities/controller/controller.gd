@@ -6,9 +6,11 @@ var settings : ControllerSettings
 @export
 var config : ControllerConfig
 @export_range(0, 1, 0.001)
-var input_throttle : float
+var input_throttle : float:
+	set = set_input_throttle
 @export_custom(PROPERTY_HINT_RANGE, '-1,1,0.001')
-var input_rotation : Vector3
+var input_rotation : Vector3:
+	set = set_input_rotation
 
 var pid_pitch : PIDInstance
 var pid_yaw : PIDInstance
@@ -17,9 +19,9 @@ var pid_roll : PIDInstance
 
 func integrate_forces(state : PhysicsDirectBodyState3D, multicopter : Multicopter) -> void:
 	var angular_velocity_current : Vector3
-	angular_velocity_current.x += (state.transform.basis.orthonormalized() * Vector3.MODEL_RIGHT).dot(state.angular_velocity)
-	angular_velocity_current.y += (state.transform.basis.orthonormalized() * Vector3.MODEL_TOP).dot(state.angular_velocity)
-	angular_velocity_current.z += (state.transform.basis.orthonormalized() * Vector3.MODEL_FRONT).dot(state.angular_velocity)
+	angular_velocity_current.x += state.angular_velocity.dot((state.transform.basis.orthonormalized() * Vector3.MODEL_LEFT).normalized())
+	angular_velocity_current.y += state.angular_velocity.dot((state.transform.basis.orthonormalized() * Vector3.MODEL_TOP).normalized())
+	angular_velocity_current.z += state.angular_velocity.dot((state.transform.basis.orthonormalized() * Vector3.MODEL_FRONT).normalized())
 	
 	var angular_velocity_target : Vector3 = input_rotation * config.rc_rate
 	
@@ -29,6 +31,7 @@ func integrate_forces(state : PhysicsDirectBodyState3D, multicopter : Multicopte
 	torque_target.x = pid_pitch.process(angular_velocity_error.x, state.step)
 	torque_target.y = pid_yaw.process(angular_velocity_error.y, state.step)
 	torque_target.z = pid_roll.process(angular_velocity_error.z, state.step)
+	torque_target /= 10 # FIXME числа слишком большие для смешивания в диапазоне [0, 1].
 	
 	# Коэффициенты смешивания
 	# Vector4(pitch, yaw, roll, throttle) без учета направления вращения пропеллера и мотора
@@ -79,6 +82,16 @@ func set_settings(value : ControllerSettings) -> void:
 		if settings:
 			settings.changed.connect(_on_settings_changed)
 		_on_settings_changed()
+
+func set_input_throttle(value : float) -> void:
+	value = clampf(value, 0, 1)
+	if value != input_throttle:
+		input_throttle = value
+
+func set_input_rotation(value : Vector3) -> void:
+	value = value.clampf(-1, 1) 
+	if value != input_rotation:
+		input_rotation = value
 
 func _on_settings_changed() -> void:
 	if settings:

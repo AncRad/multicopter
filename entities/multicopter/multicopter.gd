@@ -1,3 +1,4 @@
+@tool
 extends RigidBody3D
 class_name Multicopter
 
@@ -6,6 +7,10 @@ class_name Multicopter
 @export var motors : Array[Motor]
 @export_range(0, 1, 0.001) var test_throttle : float
 
+
+func _validate_property(property : Dictionary) -> void:
+	if property.name in [&'center_of_mass', &'inertia']:
+		property.hint_string = '-1.0,0.0,0.0001,suffix:m'
 
 func _integrate_forces(state : PhysicsDirectBodyState3D) -> void:
 	
