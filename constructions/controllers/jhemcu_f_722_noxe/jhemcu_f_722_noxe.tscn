@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bs8c6h715178x"]
+
+[ext_resource type="PackedScene" uid="uid://c2nc21hq168qd" path="res://entities/controller/controller.tscn" id="1_akwa4"]
+[ext_resource type="ArrayMesh" uid="uid://3nmgv76gonhf" path="res://imports/my_drone/jhemcu_f_722_noxe.mesh" id="2_akwa4"]
+[ext_resource type="Resource" uid="uid://cqwdc1b4aq7j1" path="res://constructions/controllers/jhemcu_f_722_noxe/jhemcu_f_722_noxe.tres" id="2_wc7ly"]
+[ext_resource type="Resource" uid="uid://d07t3u4rowhld" path="res://constructions/controllers/jhemcu_f_722_noxe/jhemcu_f_722_noxe_config.tres" id="3_s1qc2"]
+
+[node name="JHEMCU_F722_Noxe" unique_id=1670334403 instance=ExtResource("1_akwa4")]
+settings = ExtResource("2_wc7ly")
+config = ExtResource("3_s1qc2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=724662439]
+mesh = ExtResource("2_akwa4")
