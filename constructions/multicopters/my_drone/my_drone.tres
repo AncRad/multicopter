@@ -1,8 +1,27 @@
 [gd_resource type="Resource" script_class="MulticopterSettings" format=3 uid="uid://yjjq4m4kqku7"]
 
 [ext_resource type="Script" uid="uid://3igu2lqn256e" path="res://entities/multicopter/multicopter_settings.gd" id="1_ba35m"]
+[ext_resource type="Curve" uid="uid://dxiyhpexcciuc" path="res://entities/controller/input_throtte_curve.tres" id="1_qnwn2"]
+[ext_resource type="Script" uid="uid://xejv1ifas4qp" path="res://core/math/pid/pid_settings.gd" id="3_68qgb"]
+
+[sub_resource type="Resource" id="Resource_uhvsh"]
+script = ExtResource("3_68qgb")
+metadata/_custom_type_script = "uid://xejv1ifas4qp"
+
+[sub_resource type="Resource" id="Resource_pk3bm"]
+script = ExtResource("3_68qgb")
+metadata/_custom_type_script = "uid://xejv1ifas4qp"
+
+[sub_resource type="Resource" id="Resource_tatut"]
+script = ExtResource("3_68qgb")
+metadata/_custom_type_script = "uid://xejv1ifas4qp"
 
 [resource]
 script = ExtResource("1_ba35m")
+input_throtte_curve = ExtResource("1_qnwn2")
+rc_rate = Vector3(400, 200, 400)
+pid_pitch = SubResource("Resource_uhvsh")
+pid_yaw = SubResource("Resource_tatut")
+pid_roll = SubResource("Resource_pk3bm")
 drag_coef = Vector3(0.001, 0.0016, 0.0005)
 metadata/_custom_type_script = "uid://3igu2lqn256e"

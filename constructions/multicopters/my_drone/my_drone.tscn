@@ -4,7 +4,9 @@
 [ext_resource type="Resource" uid="uid://yjjq4m4kqku7" path="res://constructions/multicopters/my_drone/my_drone.tres" id="2_0cpau"]
 [ext_resource type="PackedScene" uid="uid://bufbi3nqm8s2i" path="res://imports/my_drone/my_drone.glb" id="2_e2xmj"]
 [ext_resource type="PackedScene" uid="uid://clgodpgw4267j" path="res://constructions/motors/rcin_power_gts_v2_1202_5/rcin_power_gts_v2_1202_5.tscn" id="3_e2xmj"]
+[ext_resource type="PackedScene" uid="uid://bs8c6h715178x" path="res://constructions/controllers/jhemcu_f_722_noxe/jhemcu_f_722_noxe.tscn" id="4_uhvsh"]
 [ext_resource type="PackedScene" uid="uid://hijoglt0qvrq" path="res://constructions/propellers/gemfan_2520_3/gemfan_2520_3.tscn" id="4_xp0iy"]
+[ext_resource type="Resource" uid="uid://ceqlslao25whg" path="res://constructions/multicopters/my_drone/my_drone_controller_config.tres" id="5_74il3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbmk3"]
 size = Vector3(0.02368164, 0.0340332, 0.09140625)
@@ -15,9 +17,10 @@ size = Vector3(0.11230469, 0.0037475582, 0.08347778)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm54v"]
 size = Vector3(0.032958984, 0.017926026, 0.069970705)
 
-[node name="MyDrone" unique_id=429036077 node_paths=PackedStringArray("motors") instance=ExtResource("1_n7cwa")]
+[node name="MyDrone" unique_id=429036077 node_paths=PackedStringArray("controller", "motors") instance=ExtResource("1_n7cwa")]
 mass = 0.155
 settings = ExtResource("2_0cpau")
+controller = NodePath("JHEMCU_F722_Noxe")
 motors = [NodePath("RcinPowerGTS_v2_1202_5-1"), NodePath("RcinPowerGTS_v2_1202_5-2"), NodePath("RcinPowerGTS_v2_1202_5-3"), NodePath("RcinPowerGTS_v2_1202_5-4")]
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="." index="0" unique_id=1821503119]
@@ -35,7 +38,13 @@ shape = SubResource("BoxShape3D_tm54v")
 [node name="_ - _" parent="." index="3" unique_id=1102856822 instance=ExtResource("2_e2xmj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00743015, 0)
 
-[node name="caddx ratel 2-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="6" unique_id=557281076]
+[node name="JHEMCU F722 NOXE-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="3" unique_id=630023029]
+visible = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="_ - _/drone/JHEMCU F722 NOXE-1" index="0" unique_id=998926432]
+remote_path = NodePath("../../../../JHEMCU_F722_Noxe")
+
+[node name="caddx ratel 2-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="6" unique_id=291968312]
 transform = Transform3D(1, 1.0566339e-16, 6.997578e-17, -1.2475799e-16, 0.91785896, 0.396905, -2.2289603e-17, -0.396905, 0.91785896, -5.45245e-19, 0.0150716, 0.0324782)
 
 [node name="Camera3D" type="Camera3D" parent="_ - _/drone/caddx ratel 2-1" index="0" unique_id=252472645]
@@ -43,47 +52,51 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 fov = 120.0
 near = 0.001
 
-[node name="RCINPower GTS V2 1202_5-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="9" unique_id=1142923881]
+[node name="RCINPower GTS V2 1202_5-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="9" unique_id=1036028177]
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="_ - _/drone/RCINPower GTS V2 1202_5-1" index="0" unique_id=2086528727]
 remote_path = NodePath("../../../../RcinPowerGTS_v2_1202_5-2")
 
-[node name="Runcam thumb в корпусе-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="18" unique_id=1612857424]
+[node name="Runcam thumb в корпусе-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="18" unique_id=435246592]
 visible = false
 
-[node name="Гайка М3-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="19" unique_id=1718154609]
+[node name="Гайка М3-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="19" unique_id=1932590665]
 visible = false
 
-[node name="Болт М3x25 под шест_ цилиндр-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="20" unique_id=1248641730]
+[node name="Болт М3x25 под шест_ цилиндр-1" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="20" unique_id=586477937]
 visible = false
 
-[node name="RCINPower GTS V2 1202_5-7" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="32" unique_id=887596073]
+[node name="RCINPower GTS V2 1202_5-7" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="32" unique_id=1455756900]
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="_ - _/drone/RCINPower GTS V2 1202_5-7" index="0" unique_id=1200674632]
 remote_path = NodePath("../../../../RcinPowerGTS_v2_1202_5-3")
 
-[node name="RCINPower GTS V2 1202_5-5" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="36" unique_id=1402737606]
+[node name="RCINPower GTS V2 1202_5-5" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="36" unique_id=1212381849]
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="_ - _/drone/RCINPower GTS V2 1202_5-5" index="0" unique_id=884481360]
 remote_path = NodePath("../../../../RcinPowerGTS_v2_1202_5-1")
 
-[node name="RCINPower GTS V2 1202_5-6" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1594514641) index="37" unique_id=1739869728]
+[node name="RCINPower GTS V2 1202_5-6" parent="_ - _/drone" parent_id_path=PackedInt32Array(1102856822, 1617453887) index="37" unique_id=1474719857]
 visible = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="_ - _/drone/RCINPower GTS V2 1202_5-6" index="0" unique_id=443635158]
 remote_path = NodePath("../../../../RcinPowerGTS_v2_1202_5-4")
 
-[node name="RcinPowerGTS_v2_1202_5-1" parent="." index="4" unique_id=1630741534 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
+[node name="JHEMCU_F722_Noxe" parent="." index="4" unique_id=1670334403 instance=ExtResource("4_uhvsh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01071985, 0)
+config = ExtResource("5_74il3")
+
+[node name="RcinPowerGTS_v2_1202_5-1" parent="." index="5" unique_id=1630741534 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
 transform = Transform3D(0.994903, 0, 0.100836, 0, 1, 0, -0.100836, 0, 0.994903, 0.0485, 0.0037198495, 0.034)
 propeller = NodePath("Gemfan2520-3")
 
 [node name="Gemfan2520-3" parent="RcinPowerGTS_v2_1202_5-1" index="1" unique_id=1496181087 instance=ExtResource("4_xp0iy")]
 transform = Transform3D(0.99490315, 0, -0.100836016, 0, 1, 0, 0.100836016, 0, 0.99490315, 0, 0.0047899457, 0)
 
-[node name="RcinPowerGTS_v2_1202_5-2" parent="." index="5" unique_id=1529232115 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
+[node name="RcinPowerGTS_v2_1202_5-2" parent="." index="6" unique_id=1529232115 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
 transform = Transform3D(-0.994903, 0, 0.100836, 0, 1, 0, -0.100836, 0, -0.994903, -0.0485, 0.0037198495, 0.034)
 propeller = NodePath("Gemfan2520-4")
 
@@ -91,7 +104,7 @@ propeller = NodePath("Gemfan2520-4")
 transform = Transform3D(-0.99490315, 0, -0.100836016, 0, 1, 0, 0.100836016, 0, -0.99490315, 0, 0.0047899457, 0)
 clockwise = true
 
-[node name="RcinPowerGTS_v2_1202_5-3" parent="." index="6" unique_id=1400779316 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
+[node name="RcinPowerGTS_v2_1202_5-3" parent="." index="7" unique_id=1400779316 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
 transform = Transform3D(0.994903, 0, -0.100836, 0, 1, 0, 0.100836, 0, 0.994903, 0.0485, 0.0037198495, -0.034)
 propeller = NodePath("Gemfan2520-5")
 
@@ -99,7 +112,7 @@ propeller = NodePath("Gemfan2520-5")
 transform = Transform3D(0.99490315, 0, 0.100836016, 0, 1, 0, -0.100836016, 0, 0.99490315, 0, 0.0047899457, 0)
 clockwise = true
 
-[node name="RcinPowerGTS_v2_1202_5-4" parent="." index="7" unique_id=1466224462 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
+[node name="RcinPowerGTS_v2_1202_5-4" parent="." index="8" unique_id=1466224462 node_paths=PackedStringArray("propeller") instance=ExtResource("3_e2xmj")]
 transform = Transform3D(-0.994903, 0, -0.100836, 0, 1, 0, 0.100836, 0, -0.994903, -0.0485, 0.0037198495, -0.034)
 propeller = NodePath("Gemfan2520-6")
 
