@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_4d61i")
+drag_coef = Vector3(0.001, 0.0015, 0.0005)
 metadata/_custom_type_script = "uid://3igu2lqn256e"

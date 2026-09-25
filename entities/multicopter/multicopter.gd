@@ -2,10 +2,14 @@ extends RigidBody3D
 class_name Multicopter
 
 @export var settings : MulticopterSettings
+@export var controller : Controller
 @export var motors : Array[Motor]
 @export_range(0, 1, 0.001) var test_throttle : float
 
+
 func _integrate_forces(state : PhysicsDirectBodyState3D) -> void:
+	
+	controller.integrate_forces(state, self)
 	
 	for motor : Motor in motors:
 		motor.throttle = test_throttle

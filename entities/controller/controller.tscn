@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c2nc21hq168qd"]
+
+[ext_resource type="Script" uid="uid://4ijfye3ll021" path="res://entities/controller/controller.gd" id="1_qyp7m"]
+[ext_resource type="Resource" uid="uid://d1oheew72xk7g" path="res://entities/controller/controller_settings.tres" id="2_mjc25"]
+[ext_resource type="Resource" uid="uid://dgps8c7sowvsv" path="res://entities/controller/controller_config.tres" id="3_68wdm"]
+
+[node name="Controller" type="Node3D" unique_id=1670334403]
+script = ExtResource("1_qyp7m")
+settings = ExtResource("2_mjc25")
+config = ExtResource("3_68wdm")
